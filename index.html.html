@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jai Technology Solutions LLC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #FFB300;
+      --gold-light: #FFD54F;
+      --gold-dark: #E65100;
+      --black: #080808;
+      --dark: #111111;
+      --card: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--black);
+      color: var(--text);
+    }
+
+    /* Header */
+    header {
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-logo img {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .header-brand {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+    header nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    header nav a:hover { color: var(--gold); }
+
+    /* Hero */
+    .hero {
+      background: var(--black);
+      text-align: center;
+      padding: 80px 24px 90px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,179,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 24px;
+      object-fit: cover;
+      margin-bottom: 28px;
+      box-shadow: 0 0 40px rgba(255,179,0,0.25);
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+    .tagline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .tagline span { color: var(--gold-light); opacity: 0.5; }
+
+    /* Section */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+    .section-header {
+      margin-bottom: 36px;
+    }
+    .section-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .gold-line {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    /* App card */
+    .app-card {
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 36px;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      flex-shrink: 0;
+    }
+    .app-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .app-info p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .feature-tag {
+      background: rgba(255,179,0,0.1);
+      color: var(--gold);
+      border: 1px solid rgba(255,179,0,0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    .store-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .store-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .store-btn:hover { background: var(--gold-light); }
+    .store-btn.coming-soon {
+      background: var(--border);
+      color: var(--muted);
+      cursor: default;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-grid h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .about-grid p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .contact-item a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      margin: 0 12px;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.9rem; }
+      .app-card { flex-direction: column; }
+      .about-grid { grid-template-columns: 1fr; }
+      header { padding: 14px 20px; }
+      .header-brand { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-logo">
+      <img src="./logo.png" alt="Jai Technology Solutions" />
+      <span class="header-brand">Jai Technology Solutions LLC</span>
+    </div>
+    <nav>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="https://jag-git98.github.io/trackany-privacy/" target="_blank">Privacy</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="./logo.png" alt="Jai Technology Solutions" class="hero-logo" />
+    <h1>Simple tools for<br /><span>everyday tracking</span></h1>
+    <p>We build lightweight, privacy-focused mobile apps that help you track what matters most to you.</p>
+    <div class="tagline">
+      <span>—</span> Evolve <span>•</span> Innovate <span>•</span> Future <span>—</span>
+    </div>
+  </div>
+
+  <!-- Apps -->
+  <div id="apps">
+    <div class="section">
+      <div class="section-header">
+        <div class="gold-line"></div>
+        <h2>Our Apps</h2>
+        <p>Practical tools built for iOS and Android.</p>
+      </div>
+
+      <div class="app-card">
+        <div class="app-icon">📊</div>
+        <div class="app-info">
+          <h3>TrackAny</h3>
+          <p>
+            TrackAny lets you create custom trackers for anything — fitness, finances, habits, health,
+            and more. Build your own categories, define exactly what to track, and keep all your
+            data in one place. No templates, no clutter — just the tracker you need.
+          </p>
+          <div class="features">
+            <span class="feature-tag">Custom Categories</span>
+            <span class="feature-tag">Flexible Columns</span>
+            <span class="feature-tag">Data Export</span>
+            <span class="feature-tag">iOS &amp; Android</span>
+            <span class="feature-tag">Secure &amp; Private</span>
+          </div>
+          <div class="store-buttons">
+            <a href="#" class="store-btn coming-soon">App Store — Coming Soon</a>
+            <a href="#" class="store-btn coming-soon">Google Play — Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- About -->
+  <div id="about">
+    <div class="section">
+      <div class="section-header">
+        <div class="gold-line"></div>
+        <h2>About Us</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <h3>Who We Are</h3>
+          <p>
+            Jai Technology Solutions LLC is an independent software company based in Virginia, United States.
+            We build mobile apps focused on simplicity, privacy, and real everyday utility.
+            Our apps are designed to get out of your way and let you focus on what matters.
+          </p>
+        </div>
+        <div>
+          <h3>Contact Us</h3>
+          <p>Have a question, feedback, or support request? We'd love to hear from you.</p>
+          <div class="contact-item">
+            📧 <a href="mailto:jaitechnologysolutions@outlook.com">jaitechnologysolutions@outlook.com</a>
+          </div>
+          <div class="contact-item">
+            📍 Virginia, United States
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; 2026 Jai Technology Solutions LLC &nbsp;·&nbsp;
+      <a href="https://jag-git98.github.io/trackany-privacy/" target="_blank">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
